@@ -1,0 +1,12 @@
+# NVXK Technical Debt Register (Phase 1)
+
+| ID | Priority | Component | Description | Remediation in NVXK v3 |
+| :--- | :--- | :--- | :--- | :--- |
+| **TD-01** | P0 (High) | Core GEMM (`include/nvxk.h`, `src/nvxk_api.cpp`) | Only supports `C = A * B` (`RowMajor`, `NoTrans`, `alpha=1`, `beta=0`, tight `ld`). Missing general BLAS GEMM. | Implement `XK_Layout`, `XK_Transpose`, `XK_gemm_blas` (`f32`/`f64`) with zero-overhead fast-path and NaN-safe `beta=0` handling. |
+| **TD-02** | P0 (High) | C ABI (`include/nvxk_c.h`) | Missing version query, hardware info struct, and generalized `nvxk_sgemm_ex` / `nvxk_dgemm_ex`. | Add `NVXK_VERSION_*`, `nvxk_version_*()`, `nvxk_get_hw_info()`, `nvxk_sgemm_ex()`, `nvxk_dgemm_ex()`. |
+| **TD-03** | P1 (Med) | Desktop GUI (`ui/imgui/workbench_app.cpp`) | `lab_custom_a_`, `lab_custom_b_`, `selected_session_idx_` unused (`INC-04`); no CSV import (`INC-05`), no theme toggle, no config save, no shortcuts/Help. | Wire all controls, add Dark/Light theme, shortcuts, Help panel, and `nvxk_workbench.ini` config persistence. |
+| **TD-04** | P1 (Med) | Web UI (`ui/web/index.html`) | `btnQuickBench` hardcodes `threads: 2` (`INC-10`); missing Dark/Light theme, shortcuts, Help, `localStorage` persistence, and generalized GEMM controls. | Use detected `physical_cores`, add Dark/Light theme, shortcuts, Help modal, `localStorage` persistence, and layout/trans/alpha/beta inputs. |
+| **TD-05** | P1 (Med) | Build & Scripts (`makefile`, `scripts/bench_vs_openblas.py`) | `makefile` lacks `debug`/`release`/`scalar`/`simd`/`NO_OMP=1` targets; Python OpenBLAS script hardcodes `libnvxk.so` (`INC-08`); no `.gitignore`. | Add standardized build profiles to `makefile`, cross-platform `.dll`/`.so`/`.dylib` resolution in Python script, and `.gitignore`. |
+| **TD-06** | P1 (Med) | Documentation (`README.md`, `docs/`) | 10 inconsistencies (`INC-01`..`INC-10`) and missing `BUILD_GUIDE.md`, `USER_GUIDE.md`, `DESKTOP_GUIDE.md`, `BENCHMARK_GUIDE.md`. | Rewrite/sync all 10 canonical documentation files against v3 code. |
+| **TD-07** | P2 (Low) | HTTP Server (`ui/server/http_server.cpp`) | Custom flat JSON parser (`INC-06`) and Linux `open_desktop_window()` no-op (`INC-07`). | Add `xdg-open` fallback on Linux (opt-in / non-blocking), expose generalized GEMM fields and structured logs endpoint. |
+| **TD-08** | P2 (Low) | Future ISA / Precision | AVX-512, ARM NEON, INT8/FP16 kernels, and hardware PMU counters are not yet implemented. | Document honestly as known limitations / future roadmap; never fabricate or mock. |

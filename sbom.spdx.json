@@ -1,0 +1,45 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "NVXK-Unified-Computing-Engine-5.0.0",
+  "documentNamespace": "https://nvxk.local/spdx/nvxk-5.0.0",
+  "creationInfo": {
+    "created": "2026-11-24T16:40:00Z",
+    "creators": ["Tool: NVXK-Integration-Audit"]
+  },
+  "packages": [
+    {
+      "name": "NVXK Unified Computing Engine",
+      "SPDXID": "SPDXRef-NVXK",
+      "versionInfo": "5.0.0",
+      "licenseConcluded": "BSD-3-Clause",
+      "filesAnalyzed": false
+    },
+    {
+      "name": "Google Highway",
+      "SPDXID": "SPDXRef-Highway",
+      "versionInfo": "1.4.0",
+      "licenseConcluded": "Apache-2.0 OR BSD-3-Clause",
+      "copyrightText": "Copyright 2019-2024 Google LLC; Arm Limited",
+      "filesAnalyzed": false
+    },
+    {
+      "name": "BLIS",
+      "SPDXID": "SPDXRef-BLIS",
+      "versionInfo": "0.8.1-195",
+      "licenseConcluded": "BSD-3-Clause",
+      "copyrightText": "Copyright (C) 2012-2025 UT Austin, SMU, HPE, AMD, Oracle",
+      "filesAnalyzed": false,
+      "comment": "Optional external linked dependency (NVXK_ENABLE_BLIS)"
+    },
+    {
+      "name": "hwloc",
+      "SPDXID": "SPDXRef-hwloc",
+      "versionInfo": "3.0.0a1-git",
+      "licenseConcluded": "BSD-3-Clause",
+      "copyrightText": "Copyright (C) 2004-2025 Inria, CNRS, Cisco, Intel, et al.",
+      "filesAnalyzed": false
+    }
+  ]
+}

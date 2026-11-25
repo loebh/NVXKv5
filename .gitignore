@@ -1,0 +1,26 @@
+# Build outputs and directories
+build/
+build_*/
+CMakeFiles/
+CMakeCache.txt
+*.o
+*.obj
+*.a
+*.lib
+*.exe
+*.so
+*.dll
+*.dylib
+*.pdb
+*.ilk
+
+# Local configs & temp files
+nvxk_hw.cfg
+nvxk_workbench.ini
+*.tmp
+__pycache__/
+*.pyc
+.DS_Store
+nvxk.txt
+NVXK_final/
+NVXK_final.zip
