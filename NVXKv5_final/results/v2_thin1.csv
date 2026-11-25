@@ -1,5 +1,0 @@
-# CPU: Intel(R) Xeon(R) Platinum 8481C
-# PhysicalCores: 2 LogicalThreads: 2
-# CacheMode: warm
-M,K,N,algorithm,threads_req,threads_used,min_sec,median_sec,mean_sec,stddev_sec,p95_sec,p99_sec,gflops,workspace_kb,max_rel_err
-1,1024,1024,auto,1,2,9.352967383e-05,9.393431641e-05,9.441661663e-05,1.199286418e-06,9.628701367e-05,9.685225586e-05,22.3257,0,1.1927e-05
